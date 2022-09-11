@@ -17,7 +17,7 @@ export interface CheckBoxProps
 
 // 非表示のチェックボックス
 const CheckBoxElement = styled.input`
-  display.none;
+  display: none;
 `;
 
 /**
