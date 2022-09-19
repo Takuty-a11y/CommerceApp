@@ -1,6 +1,5 @@
-import Badge from "components/atoms/Badge";
-import React from "react";
 import styled from "styled-components";
+import Badge from "components/atoms/Badge";
 
 const BadgeIconButtonWrapper = styled.span<{ size: number | string }>`
   position: relative;
@@ -14,9 +13,9 @@ const BadgeWrapper = styled.div`
   position: absolute;
   top: -7px;
   right: -10px;
-`
+`;
 
-type BadgeIconButtonProps = {
+type BadgeIconButton = {
   icon: React.ReactNode;
   badgeContent?: number;
   badgeBackgroundColor: string;
@@ -26,18 +25,23 @@ type BadgeIconButtonProps = {
 /**
  * バッジ付きアイコンボタン
  */
-const BadgeIconButton = (props: BadgeIconButtonProps) => {
-  const { icon, badgeContent, badgeBackgroundColor, size = "24px" } = props;
-
+const BadgeIconButton = ({
+  icon,
+  size = "24px",
+  badgeContent,
+  badgeBackgroundColor,
+}: BadgeIconButton) => {
   return (
     <BadgeIconButtonWrapper size={size}>
       {icon}
-      <BadgeWrapper>
-        <Badge
-          content={`${badgeContent}`}
-          backgroundColor={badgeBackgroundColor}
-        />
-      </BadgeWrapper>
+      {badgeContent && (
+        <BadgeWrapper data-testid="badge-wrapper">
+          <Badge
+            content={`${badgeContent}`}
+            backgroundColor={badgeBackgroundColor}
+          />
+        </BadgeWrapper>
+      )}
     </BadgeIconButtonWrapper>
   );
 };
