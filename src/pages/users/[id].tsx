@@ -1,10 +1,3 @@
-import BreadcrumbItem from "components/atoms/BreadcrumbItem";
-import Separator from "components/atoms/Separator";
-import Box from "components/layout/Box";
-import Flex from "components/layout/Flex";
-import Breadcrumb from "components/molecules/Breadcrumb";
-import Layout from "components/templates/Layout";
-import UserProfileContainer from "containers/UserProfileContainer";
 import {
   GetStaticPaths,
   GetStaticPropsContext,
@@ -13,6 +6,16 @@ import {
 } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import BreadcrumbItem from "components/atoms/BreadcrumbItem";
+import Separator from "components/atoms/Separator";
+import Box from "components/layout/Box";
+import Flex from "components/layout/Flex";
+import Breadcrumb from "components/molecules/Breadcrumb";
+import Layout from "components/templates/Layout";
+import UserProfileContainer from "containers/UserProfileContainer";
+import UserProductCardListContainer from "containers/UserProductCardListContainer";
+import getAllProducts from "services/products/get-all-products";
+import getAllUsers from "services/users/get-all-users";
 import getUser from "services/users/get-user";
 import { ApiContext } from "types";
 

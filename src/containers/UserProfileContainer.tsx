@@ -1,4 +1,5 @@
 import UserProfile from "components/organisms/UserProfile";
+import useUser from "services/users/use-user";
 import { ApiContext, User } from "types";
 
 const context: ApiContext = {
@@ -23,7 +24,6 @@ const UserProfileContainer = (props: UserProfileContainerProps) => {
   const { user: u } = useUser(context, { id: userId, initial: user });
 
   if (!u) return <div>Loading...</div>;
-
   return (
     <UserProfile
       username={`${u.username} (${u.displayName})`}
