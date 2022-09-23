@@ -216,6 +216,7 @@ const Dropzone = (props: DropzoneProps) => {
         onDragLeave={handleDragLeave}
         onDragEnter={handleDragEnter}
         onClick={handleClick}
+        data-testid="dropzone"
       >
         {/* ダミーインプット */}
         <DropzoneInputFile
