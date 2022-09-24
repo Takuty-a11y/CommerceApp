@@ -1,44 +1,44 @@
-import Button from "components/atoms/Button";
-import Input from "components/atoms/Input";
-import Text from "components/atoms/Text";
-import Box from "components/layout/Box";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from 'react-hook-form'
+import Button from 'components/atoms/Button'
+import Input from 'components/atoms/Input'
+import Text from 'components/atoms/Text'
+import Box from 'components/layout/Box'
 
 export type SigninFormData = {
-  username: string;
-  password: string;
-};
+  username: string
+  password: string
+}
 
 interface SigninFormProps {
   /**
    * サインインボタンを押した時のイベントハンドラ
    */
-  onSignin?: (username: string, password: string) => void;
+  onSignin?: (username: string, password: string) => void
 }
 
 /**
  * サインインフォーム
  */
 const SigninForm = (props: SigninFormProps) => {
-  const { onSignin } = props;
+  const { onSignin } = props
   // React Hook Formの使用
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<SigninFormData>();
+  } = useForm<SigninFormData>()
   const onSubmit: SubmitHandler<SigninFormData> = (data) => {
-    const { username, password } = data;
+    const { username, password } = data
 
-    onSignin && onSignin(username, password);
-  };
+    onSignin && onSignin(username, password)
+  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Box marginBottom={1}>
         {/* サインインユーザー名の入力 */}
         <Input
-          {...register("username", { required: true })}
+          {...register('username', { required: true })}
           name="username"
           type="text"
           placeholder="ユーザ名"
@@ -53,7 +53,7 @@ const SigninForm = (props: SigninFormProps) => {
       <Box marginBottom={2}>
         {/* サインインパスワードの入力 */}
         <Input
-          {...register("password", { required: true })}
+          {...register('password', { required: true })}
           name="password"
           type="password"
           placeholder="パスワード"
@@ -69,7 +69,7 @@ const SigninForm = (props: SigninFormProps) => {
         サインイン
       </Button>
     </form>
-  );
-};
+  )
+}
 
-export default SigninForm;
+export default SigninForm

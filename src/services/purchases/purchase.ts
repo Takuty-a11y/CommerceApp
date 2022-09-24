@@ -1,16 +1,16 @@
-import { ApiContext } from "types";
-import { fetcher } from "utils";
+import { ApiContext } from 'types'
+import { fetcher } from 'utils'
 
 export type PurchaseParams = {
   /**
    * 購入する商品ID
    */
-  productId: number;
-};
+  productId: number
+}
 
 const purchase = async (
   context: ApiContext,
-  props: PurchaseParams
+  props: PurchaseParams,
 ): Promise<{ message: string }> => {
   return await fetcher(`${context.apiRootUrl.replace(/\/$/g, '')}/purchases`, {
     method: 'POST',
@@ -22,6 +22,6 @@ const purchase = async (
     },
     body: JSON.stringify(props),
   })
-};
+}
 
-export default purchase;
+export default purchase

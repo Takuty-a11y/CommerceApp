@@ -1,10 +1,10 @@
-import RectLoader from "components/atoms/RectLoader"
-import Box from "components/layout/Box"
-import ProductCard from "components/organisms/ProductCard"
-import ProductCardList from "components/organisms/ProductCardList"
-import Link from "next/link"
-import useSearch from "services/products/use-search"
-import { ApiContext, Category, Condition } from "types"
+import Link from 'next/link'
+import RectLoader from 'components/atoms/RectLoader'
+import Box from 'components/layout/Box'
+import ProductCard from 'components/organisms/ProductCard'
+import ProductCardList from 'components/organisms/ProductCardList'
+import useSearch from 'services/products/use-search'
+import { ApiContext, Category, Condition } from 'types'
 
 const context: ApiContext = {
   apiRootUrl: process.env.NEXT_PUBLIC_API_BASE_PATH || '/api/proxy',
@@ -14,23 +14,23 @@ interface ProductCardListContainerProps {
   /**
    * 検索クエリ - カテゴリ
    */
-   category?: Category
-   /**
-    * 検索クエリ - 商品の状態
-    */
-   conditions?: Condition[]
+  category?: Category
+  /**
+   * 検索クエリ - 商品の状態
+   */
+  conditions?: Condition[]
 }
 
 /**
  * 商品カードリストコンテナ
  */
 const ProductCardListContainer = (props: ProductCardListContainerProps) => {
-  const {category, conditions} = props
-  const {products, isLoading} = useSearch(context, {category, conditions})
+  const { category, conditions } = props
+  const { products, isLoading } = useSearch(context, { category, conditions })
   return (
     <ProductCardList>
       {/* ロード中はレクトローダーを表示 */}
-      {isLoading && 
+      {isLoading &&
         Array.from(Array(16), (_, k) => (
           <Box key={k}>
             <Box display={{ base: 'none', md: 'block' }}>
@@ -41,7 +41,7 @@ const ProductCardListContainer = (props: ProductCardListContainerProps) => {
             </Box>
           </Box>
         ))}
-      {!isLoading && 
+      {!isLoading &&
         products.map((p) => (
           <Box key={p.id}>
             <Link href={`/products/${p.id}`} passHref>
@@ -57,8 +57,7 @@ const ProductCardListContainer = (props: ProductCardListContainerProps) => {
               </a>
             </Link>
           </Box>
-        ))  
-      }
+        ))}
     </ProductCardList>
   )
 }

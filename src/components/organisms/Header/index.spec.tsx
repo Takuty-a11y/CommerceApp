@@ -1,9 +1,9 @@
-import { render, RenderResult, screen } from "@testing-library/react"
-import { AuthContextProvider } from "contexts/AuthContext"
-import { ThemeProvider } from "styled-components"
-import { theme } from "themes"
-import { Product, User } from "types"
-import Header from "."
+import { render, RenderResult, screen } from '@testing-library/react'
+import { ThemeProvider } from 'styled-components'
+import Header from '.'
+import { AuthContextProvider } from 'contexts/AuthContext'
+import { theme } from 'themes'
+import { Product, User } from 'types'
 
 // ShoppingCartContextのモック
 jest.mock('contexts/ShoppingCartContext')
@@ -37,7 +37,7 @@ const product: Product = {
   owner: authUser,
 }
 
-describe("Header", () => {
+describe('Header', () => {
   const useShoppingCartContextMock =
     useShoppingCartContext as jest.MockedFunction<typeof useShoppingCartContext>
   let renderResult: RenderResult

@@ -1,43 +1,43 @@
-import Button from "components/atoms/Button";
-import { useShoppingCartContext } from "contexts/ShoppingCartContext";
-import { Product } from "types";
+import Button from 'components/atoms/Button'
+import { useShoppingCartContext } from 'contexts/ShoppingCartContext'
+import { Product } from 'types'
 
 interface AddToCartButtonContainerProps {
   /**
    * 追加される商品
    */
-  product: Product;
+  product: Product
   /**
    * 追加ボタンを押した時のイベントハンドラ
    */
-  onAddToCartButtonClick?: (product: Product) => void;
+  onAddToCartButtonClick?: (product: Product) => void
 }
 
 /**
  * カート追加ボタンコンテナ
  */
 const AddToCartButtonContainer = (props: AddToCartButtonContainerProps) => {
-  const { product, onAddToCartButtonClick } = props;
-  const { cart, addProductToCart } = useShoppingCartContext();
+  const { product, onAddToCartButtonClick } = props
+  const { cart, addProductToCart } = useShoppingCartContext()
   const handleAddToCartButtonClick = () => {
-    const productId = Number(product.id);
-    const result = cart.findIndex((p) => p.id == productId);
+    const productId = Number(product.id)
+    const result = cart.findIndex((p) => p.id == productId)
     // 同じ商品がカートに存在しない場合はカートに追加する
     if (result === -1) {
-      addProductToCart(product);
+      addProductToCart(product)
     }
-    onAddToCartButtonClick && onAddToCartButtonClick(product);
-  };
+    onAddToCartButtonClick && onAddToCartButtonClick(product)
+  }
 
   return (
     <Button
-      width={{ base: "100%", md: "400px" }}
+      width={{ base: '100%', md: '400px' }}
       height="66px"
       onClick={handleAddToCartButtonClick}
     >
       カートに追加
     </Button>
-  );
-};
+  )
+}
 
-export default AddToCartButtonContainer;
+export default AddToCartButtonContainer

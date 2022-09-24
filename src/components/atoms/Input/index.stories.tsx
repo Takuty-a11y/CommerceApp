@@ -1,42 +1,42 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import Input from "./index";
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import Input from './index'
 
 export default {
-  title: "Atoms/Input",
+  title: 'Atoms/Input',
   argTypes: {
     placeholder: {
-      control: { type: "text" },
+      control: { type: 'text' },
       // docsに表示する内容を設定
-      description: "プレースホルダー",
+      description: 'プレースホルダー',
       table: {
-        type: { summary: "string" },
+        type: { summary: 'string' },
       },
     },
     hasBorder: {
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
       defaultValue: false,
-      description: "ボーダーフラグ",
+      description: 'ボーダーフラグ',
       table: {
-        type: { summary: "boolean" },
+        type: { summary: 'boolean' },
       },
     },
     hasError: {
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
       defaultValue: false,
-      description: "バリデーションフラグ",
+      description: 'バリデーションフラグ',
       table: {
-        type: { summary: "boolean" },
+        type: { summary: 'boolean' },
       },
     },
   },
-} as ComponentMeta<typeof Input>;
+} as ComponentMeta<typeof Input>
 
-const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
+const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />
 
 // 通常テキスト
-export const Normal = Template.bind({});
-Normal.args = { hasError: false };
+export const Normal = Template.bind({})
+Normal.args = { hasError: false }
 
 // エラー状態
-export const Error = Template.bind({});
-Error.args = { hasError: true };
+export const Error = Template.bind({})
+Error.args = { hasError: true }

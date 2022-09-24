@@ -1,5 +1,5 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import Dropdown from "./index";
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import Dropdown from './index'
 
 export default {
   title: 'Molecules/Dropdown',
@@ -40,13 +40,13 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Dropdown>;
+} as ComponentMeta<typeof Dropdown>
 
 const Template: ComponentStory<typeof Dropdown> = (args) => (
   <Dropdown {...args} />
-);
+)
 
-export const Normal = Template.bind({});
+export const Normal = Template.bind({})
 Normal.args = {
   options: [
     { value: null, label: '-' },
@@ -76,4 +76,3 @@ Many.args = {
   }),
   placeholder: 'Please select items from the list',
 }
-

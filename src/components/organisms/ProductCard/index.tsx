@@ -1,17 +1,17 @@
-import ScaleImage from "components/atoms/ScaleImage";
-import Text from "components/atoms/Text";
-import Box from "components/layout/Box";
-import styled from "styled-components";
+import styled from 'styled-components'
+import ScaleImage from 'components/atoms/ScaleImage'
+import Text from 'components/atoms/Text'
+import Box from 'components/layout/Box'
 
 // 商品カードのコンテナ
 const ProductCardContainer = styled.div`
   position: relative;
-`;
+`
 
 // 商品カード画像のコンテナ
 const ProductCardImageContainer = styled.div`
   z-index: 99;
-`;
+`
 
 // 商品カードの情報
 const ProductCardInfo = styled.div`
@@ -19,57 +19,57 @@ const ProductCardInfo = styled.div`
   z-index: 100;
   top: 0px;
   left: 0px;
-`;
+`
 
 interface ProductCardProps {
   /**
    * 商品タイトル
    */
-  title: string;
+  title: string
   /**
    * 商品価格
    */
-  price: number;
+  price: number
   /**
    * 商品のぼかし画像のデータURIスキーム
    */
-  blurDataUrl?: string;
+  blurDataUrl?: string
   /**
    * 商品画像URL
    */
-  imageUrl: string;
+  imageUrl: string
   /**
    * バリアント（表示スタイル）
    */
-  variant?: "detail" | "listing" | "small";
+  variant?: 'detail' | 'listing' | 'small'
 }
 
 /**
  * 商品カード
  */
 const ProductCard = (props: ProductCardProps) => {
-  const { title, price, blurDataUrl, imageUrl, variant } = props;
+  const { title, price, blurDataUrl, imageUrl, variant } = props
   const { size, imgSize } = (() => {
     switch (variant) {
-      case "detail":
-        return { size: { base: "320px", md: "540px" }, imgSize: 540 };
-      case "listing":
-        return { size: { base: "160px", md: "240px" }, imgSize: 240 };
+      case 'detail':
+        return { size: { base: '320px', md: '540px' }, imgSize: 540 }
+      case 'listing':
+        return { size: { base: '160px', md: '240px' }, imgSize: 240 }
       default:
-        return { size: { base: "160px" }, imgSize: 160 };
+        return { size: { base: '160px' }, imgSize: 160 }
     }
-  })();
+  })()
 
   return (
     <ProductCardContainer>
-      {variant != "small" && (
+      {variant != 'small' && (
         <ProductCardInfo>
           <Box>
             <Text
               as="h2"
-              fontSize={{ base: "small", md: "mediumLarge" }}
+              fontSize={{ base: 'small', md: 'mediumLarge' }}
               letterSpacing={{ base: 2, md: 3 }}
-              lineHeight={{ base: "32px", md: "48px" }}
+              lineHeight={{ base: '32px', md: '48px' }}
               backgroundColor="white"
               margin={0}
               paddingRight={2}
@@ -84,8 +84,8 @@ const ProductCard = (props: ProductCardProps) => {
               fontWeight="bold"
               display="inline-block"
               backgroundColor="white"
-              fontSize={{ base: "extraSmall", md: "medium" }}
-              lineHeight={{ base: "8px", md: "12px" }}
+              fontSize={{ base: 'extraSmall', md: 'medium' }}
+              lineHeight={{ base: '8px', md: '12px' }}
               letterSpacing={{ base: 2, md: 4 }}
               margin={0}
               padding={{ base: 1, md: 2 }}
@@ -119,7 +119,7 @@ const ProductCard = (props: ProductCardProps) => {
           />
         )}
       </ProductCardImageContainer>
-      {variant === "small" && (
+      {variant === 'small' && (
         <Box marginTop={1}>
           <Text as="h2" variant="medium" margin={0} padding={0}>
             {title}
@@ -130,7 +130,7 @@ const ProductCard = (props: ProductCardProps) => {
         </Box>
       )}
     </ProductCardContainer>
-  );
-};
+  )
+}
 
-export default ProductCard;
+export default ProductCard

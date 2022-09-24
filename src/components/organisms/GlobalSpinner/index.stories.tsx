@@ -1,13 +1,15 @@
-import { ComponentMeta } from "@storybook/react";
-import Button from "components/atoms/Button";
-import GlobalSpinnerContextProvider, { useGlobalSpinnerActionsContext } from "contexts/GlobalSpinnerContext";
-import GlobalSpinner from "./index";
+import { ComponentMeta } from '@storybook/react'
+import GlobalSpinner from './index'
+import Button from 'components/atoms/Button'
+import GlobalSpinnerContextProvider, {
+  useGlobalSpinnerActionsContext,
+} from 'contexts/GlobalSpinnerContext'
 
 export default {
-  title: "Organisms/GlobalSpinner",
-} as ComponentMeta<typeof GlobalSpinner>;
+  title: 'Organisms/GlobalSpinner',
+} as ComponentMeta<typeof GlobalSpinner>
 
-export const WithContextProvider = ( ) => {
+export const WithContextProvider = () => {
   const ChildComponent = () => {
     const setGlobalSpinner = useGlobalSpinnerActionsContext()
     const handleClick = () => {

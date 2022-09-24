@@ -1,78 +1,78 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import Button from "components/atoms/Button";
-import Box from "components/layout/Box";
-import { useEffect, useState } from "react";
-import Dropzone from "./index";
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { useEffect, useState } from 'react'
+import Dropzone from './index'
+import Button from 'components/atoms/Button'
+import Box from 'components/layout/Box'
 
 export default {
-  title: "Molecules/Dropzone",
+  title: 'Molecules/Dropzone',
   argTypes: {
     acceptedFileTypes: {
       options: {
-        control: { type: "array" },
-        description: "受け付けるファイルタイプ",
+        control: { type: 'array' },
+        description: '受け付けるファイルタイプ',
         table: {
-          type: { summary: "array" },
+          type: { summary: 'array' },
         },
       },
     },
     height: {
-      control: { type: "number" },
-      description: "縦幅",
+      control: { type: 'number' },
+      description: '縦幅',
       table: {
-        type: { summary: "number" },
+        type: { summary: 'number' },
       },
     },
     width: {
-      control: { type: "number" },
-      description: "横幅",
+      control: { type: 'number' },
+      description: '横幅',
       table: {
-        type: { summary: "number" },
+        type: { summary: 'number' },
       },
     },
     hasError: {
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
       defaultValue: false,
-      description: "バリデーションエラーフラグ",
+      description: 'バリデーションエラーフラグ',
       table: {
-        type: { summary: "boolean" },
+        type: { summary: 'boolean' },
       },
     },
     onDrop: {
-      description: "ファイルがドロップ入力された時のイベントハンドラ",
+      description: 'ファイルがドロップ入力された時のイベントハンドラ',
       table: {
-        type: { summary: "function" },
+        type: { summary: 'function' },
       },
     },
     onChange: {
-      description: "ファイルが入力された時のイベントハンドラ",
+      description: 'ファイルが入力された時のイベントハンドラ',
       table: {
-        type: { summary: "function" },
+        type: { summary: 'function' },
       },
     },
   },
-} as ComponentMeta<typeof Dropzone>;
+} as ComponentMeta<typeof Dropzone>
 
 const Template: ComponentStory<typeof Dropzone> = (args) => {
-  const [files, setFiles] = useState<File[]>([]);
+  const [files, setFiles] = useState<File[]>([])
   const handleDrop = (files: File[]) => {
-    setFiles(files);
-    args && args.onDrop && args.onDrop(files);
-  };
+    setFiles(files)
+    args && args.onDrop && args.onDrop(files)
+  }
   const clearImages = () => {
-    setFiles([]);
-  };
+    setFiles([])
+  }
   const fetchData = async () => {
-    const res = await fetch("/images/sample/1.jpg");
-    const blob = await res.blob();
-    const file = new File([blob], "1.png", blob);
+    const res = await fetch('/images/sample/1.jpg')
+    const blob = await res.blob()
+    const file = new File([blob], '1.png', blob)
 
-    setFiles([...files, file]);
-  };
+    setFiles([...files, file])
+  }
   useEffect(() => {
-    fetchData();
+    fetchData()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [])
 
   return (
     <>
@@ -97,13 +97,13 @@ const Template: ComponentStory<typeof Dropzone> = (args) => {
         ))}
       </Box>
     </>
-  );
-};
+  )
+}
 
-export const WithControl = Template.bind({});
+export const WithControl = Template.bind({})
 WithControl.args = {
   height: 200,
-  width: "100%",
-  acceptedFileTypes: ["image/png", "image/jpeg", "image/jpg", "image/gif"],
+  width: '100%',
+  acceptedFileTypes: ['image/png', 'image/jpeg', 'image/jpg', 'image/gif'],
   hasError: false,
-};
+}

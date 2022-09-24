@@ -1,19 +1,19 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import ProductForm from "./index";
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import ProductForm from './index'
 
 export default {
-  title: "Organisms/ProductForm",
+  title: 'Organisms/ProductForm',
   argTypes: {
     onProductSave: {
-      description: "出品ボタンを押した時のイベントハンドラ",
+      description: '出品ボタンを押した時のイベントハンドラ',
       table: {
-        type: { summary: "function" },
+        type: { summary: 'function' },
       },
     },
   },
-} as ComponentMeta<typeof ProductForm>;
+} as ComponentMeta<typeof ProductForm>
 
 const Template: ComponentStory<typeof ProductForm> = (args) => (
   <ProductForm {...args} />
-);
-export const Form = Template.bind({});
+)
+export const Form = Template.bind({})

@@ -3,30 +3,30 @@ import {
   GetStaticPropsContext,
   InferGetStaticPropsType,
   NextPage,
-} from "next";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import BreadcrumbItem from "components/atoms/BreadcrumbItem";
-import Separator from "components/atoms/Separator";
-import Box from "components/layout/Box";
-import Flex from "components/layout/Flex";
-import Breadcrumb from "components/molecules/Breadcrumb";
-import Layout from "components/templates/Layout";
-import UserProfileContainer from "containers/UserProfileContainer";
-import UserProductCardListContainer from "containers/UserProductCardListContainer";
-import getAllProducts from "services/products/get-all-products";
-import getAllUsers from "services/users/get-all-users";
-import getUser from "services/users/get-user";
-import { ApiContext } from "types";
+} from 'next'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import BreadcrumbItem from 'components/atoms/BreadcrumbItem'
+import Separator from 'components/atoms/Separator'
+import Box from 'components/layout/Box'
+import Flex from 'components/layout/Flex'
+import Breadcrumb from 'components/molecules/Breadcrumb'
+import Layout from 'components/templates/Layout'
+import UserProductCardListContainer from 'containers/UserProductCardListContainer'
+import UserProfileContainer from 'containers/UserProfileContainer'
+import getAllProducts from 'services/products/get-all-products'
+import getAllUsers from 'services/users/get-all-users'
+import getUser from 'services/users/get-user'
+import { ApiContext } from 'types'
 
-type UserPageProps = InferGetStaticPropsType<typeof getStaticProps>;
+type UserPageProps = InferGetStaticPropsType<typeof getStaticProps>
 
 const UserPage: NextPage<UserPageProps> = (props: UserPageProps) => {
-  const { id, user, products } = props;
-  const router = useRouter();
+  const { id, user, products } = props
+  const router = useRouter()
 
   if (router.isFallback) {
-    return <div>Loading...</div>;
+    return <div>Loading...</div>
   }
 
   return (
@@ -69,35 +69,35 @@ const UserPage: NextPage<UserPageProps> = (props: UserPageProps) => {
         </Box>
       </Flex>
     </Layout>
-  );
-};
+  )
+}
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const context: ApiContext = {
-    apiRootUrl: process.env.API_BASE_URL || "http://localhost:5000",
-  };
-  const users = await getAllUsers(context);
-  const paths = users.map((u) => `/users/${u.id}`);
+    apiRootUrl: process.env.API_BASE_URL || 'http://localhost:5000',
+  }
+  const users = await getAllUsers(context)
+  const paths = users.map((u) => `/users/${u.id}`)
 
-  return { paths, fallback: true };
-};
+  return { paths, fallback: true }
+}
 
 export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   const context: ApiContext = {
-    apiRootUrl: process.env.API_BASE_URL || "http://localhost:5000",
-  };
+    apiRootUrl: process.env.API_BASE_URL || 'http://localhost:5000',
+  }
 
   if (!params) {
-    throw new Error("params is undefined");
+    throw new Error('params is undefined')
   }
 
   // ユーザー情報と ユーザーの所持する商品を取得し、静的ページを作成
   // 10秒でrevalidateな状態にし、静的ページを更新する
-  const userId = Number(params.id);
+  const userId = Number(params.id)
   const [user, products] = await Promise.all([
     getUser(context, { id: userId }),
     getAllProducts(context, { userId }),
-  ]);
+  ])
 
   return {
     props: {
@@ -106,7 +106,7 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
       products: products ?? [],
     },
     revalidate: 10,
-  };
-};
+  }
+}
 
-export default UserPage;
+export default UserPage

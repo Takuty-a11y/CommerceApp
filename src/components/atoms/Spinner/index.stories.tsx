@@ -1,36 +1,36 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import styled from "styled-components";
-import Spinner from "./index";
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import styled from 'styled-components'
+import Spinner from './index'
 
 export default {
-  title: "Atoms/Spinner",
+  title: 'Atoms/Spinner',
   argTypes: {
     size: {
-      control: { type: "number" },
+      control: { type: 'number' },
       defaultValue: 50,
-      description: "サイズ",
+      description: 'サイズ',
       table: {
-        type: { summary: "number" },
+        type: { summary: 'number' },
       },
     },
     strokeWidth: {
-      control: { type: "number" },
+      control: { type: 'number' },
       defaultValue: 4,
-      description: "先の太さ",
+      description: '先の太さ',
       table: {
-        type: { summary: "number" },
+        type: { summary: 'number' },
       },
     },
     isAutoCentering: {
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
       defaultValue: false,
-      description: "センタリングフラグ",
+      description: 'センタリングフラグ',
       table: {
-        type: { summary: "boolean" },
+        type: { summary: 'boolean' },
       },
     },
   },
-} as ComponentMeta<typeof Spinner>;
+} as ComponentMeta<typeof Spinner>
 
 const SpinnerWrapper = styled.div`
   position: fixed;
@@ -42,12 +42,12 @@ const SpinnerWrapper = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1199;
-`;
+`
 
 const Template: ComponentStory<typeof Spinner> = (args) => (
   <SpinnerWrapper>
     <Spinner {...args} />
   </SpinnerWrapper>
-);
+)
 
-export const Normal = Template.bind({});
+export const Normal = Template.bind({})

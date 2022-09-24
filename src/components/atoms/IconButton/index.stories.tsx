@@ -1,39 +1,39 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { CloudUploadIcon, PersonOutlineIcon, SearchIcon } from "./index";
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { CloudUploadIcon, PersonOutlineIcon, SearchIcon } from './index'
 
 export default {
-  title: "Atoms/IconButton",
+  title: 'Atoms/IconButton',
   argTypes: {
     color: {
-      control: { type: "string" },
-      description: "アイコン色",
+      control: { type: 'string' },
+      description: 'アイコン色',
       table: {
-        type: { summary: "ThemeColors" },
+        type: { summary: 'ThemeColors' },
       },
     },
     backgroundColor: {
-      control: { type: "color" },
-      description: "背景色",
+      control: { type: 'color' },
+      description: '背景色',
       table: {
-        type: { summary: "string" },
+        type: { summary: 'string' },
       },
     },
     size: {
-      control: { type: "number" },
+      control: { type: 'number' },
       defaultValue: 24,
-      description: "アイコンのサイズ",
+      description: 'アイコンのサイズ',
       table: {
-        type: { summary: "number" },
+        type: { summary: 'number' },
       },
     },
     onClick: {
-      description: "onClickイベントハンドラ",
+      description: 'onClickイベントハンドラ',
       table: {
-        type: { summary: "function" },
+        type: { summary: 'function' },
       },
     },
   },
-} as ComponentMeta<typeof SearchIcon>;
+} as ComponentMeta<typeof SearchIcon>
 
 const Template: ComponentStory<typeof SearchIcon> = (args) => (
   <>
@@ -41,6 +41,6 @@ const Template: ComponentStory<typeof SearchIcon> = (args) => (
     <CloudUploadIcon {...args} />
     <PersonOutlineIcon {...args} />
   </>
-);
+)
 
-export const Normal = Template.bind({});
+export const Normal = Template.bind({})

@@ -1,23 +1,23 @@
-import { GitHubIcon } from "components/atoms/IconButton";
-import Text from "components/atoms/Text";
-import Box from "components/layout/Box";
-import Flex from "components/layout/Flex";
-import Link from "next/link";
-import styled from "styled-components";
+import Link from 'next/link'
+import styled from 'styled-components'
+import { GitHubIcon } from 'components/atoms/IconButton'
+import Text from 'components/atoms/Text'
+import Box from 'components/layout/Box'
+import Flex from 'components/layout/Flex'
 
 const Anchor = styled(Text)`
   cursor: pointer;
   &:hover {
     text-decoration: underline;
   }
-`;
+`
 
 const Footer = () => {
   return (
     <footer>
-      <Flex flexDirection={{ base: "column", md: "row" }}>
+      <Flex flexDirection={{ base: 'column', md: 'row' }}>
         <Box
-          minWidth={{ base: "100%", md: "120px" }}
+          minWidth={{ base: '100%', md: '120px' }}
           paddingRight={{ base: 0, md: 1 }}
         >
           <nav>
@@ -39,7 +39,7 @@ const Footer = () => {
           </nav>
         </Box>
         <Box
-          minWidth={{ base: "100%", md: "120px" }}
+          minWidth={{ base: '100%', md: '120px' }}
           paddingRight={{ base: 0, md: 1 }}
         >
           <nav>
@@ -60,7 +60,7 @@ const Footer = () => {
             </Box>
           </nav>
         </Box>
-        <Box minWidth={{ base: "100%", md: "120px" }}>
+        <Box minWidth={{ base: '100%', md: '120px' }}>
           <nav>
             <Anchor
               as="a"
@@ -76,7 +76,7 @@ const Footer = () => {
         <Text>© 2021 Gijutsuhyoronsha Co., Ltd.. All rights reserved.</Text>
       </Box>
     </footer>
-  );
-};
+  )
+}
 
 export default Footer

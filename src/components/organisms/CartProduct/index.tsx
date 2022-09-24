@@ -1,18 +1,18 @@
-import Button from "components/atoms/Button";
-import Text from "components/atoms/Text";
-import Box from "components/layout/Box";
-import Flex from "components/layout/Flex";
-import Image from "next/image";
-import Link from "next/link";
-import styled from "styled-components";
+import Image from 'next/image'
+import Link from 'next/link'
+import styled from 'styled-components'
+import Button from 'components/atoms/Button'
+import Text from 'components/atoms/Text'
+import Box from 'components/layout/Box'
+import Flex from 'components/layout/Flex'
 
 interface CartProductProps {
-  id: number;
-  imageUrl: string;
-  title: string;
-  price: number;
-  onBuyButtonClick?: (id: number) => void;
-  onRemoveButtonClick?: (id: number) => void;
+  id: number
+  imageUrl: string
+  title: string
+  price: number
+  onBuyButtonClick?: (id: number) => void
+  onRemoveButtonClick?: (id: number) => void
 }
 
 const RemoveText = styled(Text)`
@@ -20,11 +20,11 @@ const RemoveText = styled(Text)`
   &:hover {
     text-decoration: underline;
   }
-`;
+`
 
 const CartProduct = (props: CartProductProps) => {
   const { id, imageUrl, title, price, onBuyButtonClick, onRemoveButtonClick } =
-    props;
+    props
   return (
     <Flex justifyContent="space-between">
       <Flex>
@@ -65,7 +65,7 @@ const CartProduct = (props: CartProductProps) => {
             <Flex marginTop={{ base: 2, md: 0 }}>
               {/* 購入ボタン */}
               <Button
-                width={{ base: "100px", md: "200px" }}
+                width={{ base: '100px', md: '200px' }}
                 onClick={() => onBuyButtonClick && onBuyButtonClick(id)}
               >
                 購入
@@ -73,8 +73,8 @@ const CartProduct = (props: CartProductProps) => {
               {/* 削除ボタン (モバイル) */}
               <Button
                 marginLeft={1}
-                width={{ base: "100px", md: "200px" }}
-                display={{ base: "block", md: "none" }}
+                width={{ base: '100px', md: '200px' }}
+                display={{ base: 'block', md: 'none' }}
                 variant="danger"
                 onClick={() => onRemoveButtonClick && onRemoveButtonClick(id)}
               >
@@ -84,7 +84,7 @@ const CartProduct = (props: CartProductProps) => {
           </Flex>
         </Box>
       </Flex>
-      <Box display={{ base: "none", md: "block" }}>
+      <Box display={{ base: 'none', md: 'block' }}>
         {/* 削除ボタン (デスクトップ) */}
         <RemoveText
           color="danger"
@@ -94,7 +94,7 @@ const CartProduct = (props: CartProductProps) => {
         </RemoveText>
       </Box>
     </Flex>
-  );
-};
+  )
+}
 
-export default CartProduct;
+export default CartProduct

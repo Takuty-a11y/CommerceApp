@@ -1,27 +1,27 @@
-import Text from "components/atoms/Text";
-import Box from "components/layout/Box";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from 'react'
+import Text from 'components/atoms/Text'
+import Box from 'components/layout/Box'
 import CheckBox from 'components/molecules/CheckBox'
 
 type Item = {
-  label: string;
-  name: string;
-};
+  label: string
+  name: string
+}
 
 type FilterGroupProps = {
-  title: string;
-  items: Item[];
-  value?: string[];
-  defaultValue?: string[];
-  onChange?: (values: string[]) => void;
-};
+  title: string
+  items: Item[]
+  value?: string[]
+  defaultValue?: string[]
+  onChange?: (values: string[]) => void
+}
 
 /**
  * フィルターグループ
  */
 const FilterGroup = (props: FilterGroupProps) => {
-  const { title, items, value = [], defaultValue = [], onChange } = props;
-  const [selected, setSelected] = useState(value ?? defaultValue);
+  const { title, items, value = [], defaultValue = [], onChange } = props
+  const [selected, setSelected] = useState(value ?? defaultValue)
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -59,6 +59,6 @@ const FilterGroup = (props: FilterGroupProps) => {
       </Box>
     </>
   )
-};
+}
 
-export default FilterGroup;
+export default FilterGroup

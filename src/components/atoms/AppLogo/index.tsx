@@ -28,6 +28,6 @@ const AppLogo = () => (
       </linearGradient>
     </defs>
   </svg>
-);
+)
 
-export default AppLogo;
+export default AppLogo

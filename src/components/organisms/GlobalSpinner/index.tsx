@@ -1,6 +1,6 @@
-import Spinner from "components/atoms/Spinner";
-import { useGlobalSpinnerContext } from "contexts/GlobalSpinnerContext";
-import styled from "styled-components";
+import styled from 'styled-components'
+import Spinner from 'components/atoms/Spinner'
+import { useGlobalSpinnerContext } from 'contexts/GlobalSpinnerContext'
 
 //グローバルスピナーの背景
 const GlobalSpinnerWrapper = styled.div`
@@ -14,13 +14,13 @@ const GlobalSpinnerWrapper = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1200;
-`;
+`
 
 /**
  * グローバルスピナー
  */
 const GlobalSpinner = () => {
-  const isGlobalSpinnerOn = useGlobalSpinnerContext();
+  const isGlobalSpinnerOn = useGlobalSpinnerContext()
   return (
     <>
       {isGlobalSpinnerOn && (
@@ -29,7 +29,7 @@ const GlobalSpinner = () => {
         </GlobalSpinnerWrapper>
       )}
     </>
-  );
-};
+  )
+}
 
-export default GlobalSpinner;
+export default GlobalSpinner

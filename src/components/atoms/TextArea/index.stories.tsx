@@ -1,63 +1,63 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import TextArea from "./index";
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import TextArea from './index'
 
 export default {
-  title: "Atoms/TextArea",
+  title: 'Atoms/TextArea',
   argTypes: {
     placeholder: {
-      control: { type: "text" },
-      description: "プレースホルダー",
+      control: { type: 'text' },
+      description: 'プレースホルダー',
       table: {
-        type: { summary: "string" },
+        type: { summary: 'string' },
       },
     },
     rows: {
-      control: { type: "number" },
+      control: { type: 'number' },
       defaultValue: 5,
-      description: "行数",
+      description: '行数',
       table: {
-        type: { summary: "number" },
+        type: { summary: 'number' },
       },
     },
     minRows: {
-      control: { type: "number" },
+      control: { type: 'number' },
       defaultValue: 5,
-      description: "最小行数",
+      description: '最小行数',
       table: {
-        type: { summary: "number" },
+        type: { summary: 'number' },
       },
     },
     maxRows: {
-      control: { type: "number" },
+      control: { type: 'number' },
       defaultValue: 10,
-      description: "最大行数",
+      description: '最大行数',
       table: {
-        type: { summary: "number" },
+        type: { summary: 'number' },
       },
     },
     hasError: {
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
       defaultValue: false,
-      description: "バリデーションエラーフラグ",
+      description: 'バリデーションエラーフラグ',
       table: {
-        type: { summary: "boolean" },
+        type: { summary: 'boolean' },
       },
     },
     onChange: {
-      description: "onChangeイベントハンドラ",
+      description: 'onChangeイベントハンドラ',
       table: {
-        type: { summary: "function" },
+        type: { summary: 'function' },
       },
     },
   },
-} as ComponentMeta<typeof TextArea>;
+} as ComponentMeta<typeof TextArea>
 
 const Template: ComponentStory<typeof TextArea> = (args) => (
   <TextArea {...args} />
-);
+)
 
-export const Normal = Template.bind({});
-Normal.args = { hasError: false };
+export const Normal = Template.bind({})
+Normal.args = { hasError: false }
 
-export const Error = Template.bind({});
-Error.args = { hasError: true };
+export const Error = Template.bind({})
+Error.args = { hasError: true }

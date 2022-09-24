@@ -1,11 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 interface SeparatorProps {
-  children?: React.ReactNode;
+  children?: React.ReactNode
 }
 
-const getMargin = ({ children }: SeparatorProps) =>
-  children ? ".50em" : "0em";
+const getMargin = ({ children }: SeparatorProps) => (children ? '.50em' : '0em')
 
 /**
  * セパレーター
@@ -17,7 +16,7 @@ const Separator = styled.div<SeparatorProps>`
   align-items: center;
   &::before,
   &::after {
-    content: "";
+    content: '';
     flex: 1;
     border-bottom: 1px solid #e5e7eb;
   }
@@ -27,6 +26,6 @@ const Separator = styled.div<SeparatorProps>`
   &::after {
     margin-left: ${getMargin};
   }
-`;
+`
 
-export default Separator;
+export default Separator

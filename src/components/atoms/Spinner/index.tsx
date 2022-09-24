@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components'
 
 const StyledSpinner = styled.svg<{ size: number; isAutoCentering: boolean }>`
   animation: rotate 2s linear infinite;
@@ -34,19 +34,19 @@ const StyledSpinner = styled.svg<{ size: number; isAutoCentering: boolean }>`
       stroke-dashoffset: -124;
     }
   }
-`;
+`
 
 type SpinnerProps = {
-  size?: number;
-  strokeWidth?: number;
-  isAutoCentering?: boolean;
-};
+  size?: number
+  strokeWidth?: number
+  isAutoCentering?: boolean
+}
 
 /**
  * スピナー
  */
 const Spinner = (props: SpinnerProps) => {
-  const { size = 50, strokeWidth = 4, isAutoCentering = false } = props;
+  const { size = 50, strokeWidth = 4, isAutoCentering = false } = props
 
   return (
     <StyledSpinner
@@ -63,7 +63,7 @@ const Spinner = (props: SpinnerProps) => {
         strokeWidth={strokeWidth}
       />
     </StyledSpinner>
-  );
-};
+  )
+}
 
-export default Spinner;
+export default Spinner
