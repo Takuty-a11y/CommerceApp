@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import styled from "styled-components";
-import Box, { BoxProps } from "../Box";
+import Box, { BoxProps } from "components/layout/Box";
 import type {
   CSSPropertyGridArea,
   CSSPropertyGridAutoFlow,
@@ -10,7 +10,7 @@ import type {
 } from "types/styles";
 import { toPropValue } from "utils/styles";
 
-export type GridProps = BoxProps & {
+type GridProps = BoxProps & {
   gridGap?: Responsive<string>;
   gridColumnGap?: Responsive<string>;
   gridRowGap?: Responsive<string>;

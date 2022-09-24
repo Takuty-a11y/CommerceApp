@@ -1,4 +1,4 @@
-import {
+import type {
   GetStaticPaths,
   GetStaticProps,
   GetStaticPropsContext,
@@ -20,7 +20,7 @@ import AddToCartButtonContainer from 'containers/AddToCartButtonContainer'
 import getAllProducts from 'services/products/get-all-products'
 import getProduct from 'services/products/get-product'
 import useProduct from 'services/products/use-product'
-import { ApiContext, Category } from 'types'
+import type { ApiContext, Category } from 'types'
 
 const categoryNameDict: Record<Category, string> = {
   book: '本',
@@ -34,11 +34,14 @@ const context: ApiContext = {
 
 type ProductPageProps = InferGetStaticPropsType<typeof getStaticProps>
 
-const ProductPage: NextPage<ProductPageProps> = (props: ProductPageProps) => {
-  const { id, initial } = props
+const ProductPage: NextPage<ProductPageProps> = ({
+  id,
+  product: initial,
+}: ProductPageProps) => {
   const router = useRouter()
+  // 商品
   const data = useProduct(context, { id, initial })
-  const product = data.product ?? initial
+
   // カートに追加したら、自動的にカートページに遷移する
   const handleAddToCartButtonClick = () => {
     router.push('/cart')
@@ -47,6 +50,8 @@ const ProductPage: NextPage<ProductPageProps> = (props: ProductPageProps) => {
   if (router.isFallback) {
     return <div>Loading...</div>
   }
+
+  const product = data.product ?? initial
 
   return (
     <Layout>
@@ -103,7 +108,7 @@ const ProductPage: NextPage<ProductPageProps> = (props: ProductPageProps) => {
             </Link>
           </Box>
         </Box>
-        <Box>
+        <Box padding={2} width={{ base: '100%', md: '700px' }}>
           <Flex
             justifyContent="space-between"
             flexDirection="column"
